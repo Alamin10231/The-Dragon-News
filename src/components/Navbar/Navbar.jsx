@@ -17,7 +17,7 @@ const Navbar = () => {
           
 
             <img src={userpic} alt="" />
-            <Link to='/authlayout'><button className='btn btn-neutral border-none py-1 px-10 rounded-none font-400 text-lg text-white'>login</button></Link>
+            <Link to='/authlayout/login'><button className='btn btn-neutral border-none py-1 px-10 rounded-none font-400 text-lg text-white'>login</button></Link>
           </div>
 
         </div>

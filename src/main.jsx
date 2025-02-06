@@ -17,6 +17,7 @@ import AuthLayout from './Layouts/AuthLayout';
 import Login from './components/Login/Login';
 import Navbar from './components/Navbar/Navbar';
 import Register from './components/Register/Register';
+import AuthProviders from './Providers/AuthProviders';
 
 
 // import {   Router, RouterProvider } from 'react-router-dom'
@@ -67,27 +68,25 @@ const router = createBrowserRouter([
     
 
   },
-  {
-    path:"/authlayout",
-    element:<AuthLayout></AuthLayout>,
-    children:[
-      // {
-      //   path:'/authlayout/navbar',
-      //   element:<Navbar></Navbar>
-      // },
-{
-  path:'/authlayout/login',
-  element:<Login></Login>
-},
-{
-  path:'/authlayout/register',
-  element:<Register></Register>
-}
-    ]
-  }
+    {
+    path: "/authlayout",
+    element: <AuthLayout></AuthLayout>,
+    children: [
+      {
+        path: "/authlayout/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/authlayout/register",
+        element: <Register></Register>,
+      },
+    ],
+  },
 ])
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <AuthProviders>
     <RouterProvider router={router} />
+    </AuthProviders>
   </StrictMode>,
 )
