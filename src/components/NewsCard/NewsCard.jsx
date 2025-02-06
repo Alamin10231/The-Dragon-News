@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaStar, FaCalendarAlt, FaEye } from 'react-icons/fa'; // Importing icons from react-icons
+import { Link } from 'react-router-dom';
 
 const NewsCard = ({ data }) => {
   const {  title, image_url, details, author, rating, total_view } = data;
@@ -49,7 +50,7 @@ const NewsCard = ({ data }) => {
 
         {/* Read More Button */}
         <div className="card-actions  justify-end mt-4">
-          <button className="btn btn-primary text-md">Read More</button>
+          <Link to={`/news/${data._id}`}><button className="btn btn-primary text-md">Read More</button></Link>
         </div>
       </div>
     </div>

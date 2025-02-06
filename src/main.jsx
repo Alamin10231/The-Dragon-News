@@ -15,9 +15,10 @@ import Leftside from './components/mainstructure/Leftside';
 import Maincontent from './components/mainstructure/Maincontent';
 import AuthLayout from './Layouts/AuthLayout';
 import Login from './components/Login/Login';
-import Navbar from './components/Navbar/Navbar';
 import Register from './components/Register/Register';
 import AuthProviders from './Providers/AuthProviders';
+import NewsDetails from './components/NewsDetails/NewsDetails';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 
 // import {   Router, RouterProvider } from 'react-router-dom'
@@ -48,8 +49,12 @@ const router = createBrowserRouter([
       ]
   },
   {
-      path:'news',
-      element:<h1>News</h1>
+      path:"/news/:id",
+      element:<PrivateRoute>
+        <NewsDetails></NewsDetails>
+      </PrivateRoute>,
+
+      loader:({params})=>fetch(`https://openapi.programming-hero.com/api/news/${params.id}`)
   },
   {
       path:'/auth',
